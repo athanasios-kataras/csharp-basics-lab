@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.CSharp.Basics.CleanCode\Microsoft.CSharp.Basics.CleanCode.csproj" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
 
