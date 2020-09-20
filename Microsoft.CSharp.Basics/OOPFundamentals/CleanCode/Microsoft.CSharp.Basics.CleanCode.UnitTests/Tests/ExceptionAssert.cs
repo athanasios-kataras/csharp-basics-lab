@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.UnitTests
+namespace Microsoft.CSharp.Basics.CleanCode.UnitTests
 {
 	public static class ExceptionAssert
 	{
