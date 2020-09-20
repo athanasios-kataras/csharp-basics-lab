@@ -1,4 +1,4 @@
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab
+namespace Microsoft.CSharp.Basics.CleanCode
 {
 	/// <summary>
 	/// Represents a single conference session

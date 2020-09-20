@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab
+namespace Microsoft.CSharp.Basics.CleanCode
 {
 	/// <summary>
 	/// Represents a single speaker

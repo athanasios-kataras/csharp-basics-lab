@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.UnitTests
+namespace Microsoft.CSharp.Basics.CleanCode.UnitTests
 {
 	[TestFixture]
 	public class SpeakerTests
