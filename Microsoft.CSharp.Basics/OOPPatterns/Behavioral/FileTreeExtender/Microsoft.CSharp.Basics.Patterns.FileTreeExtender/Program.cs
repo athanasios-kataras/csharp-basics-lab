@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Microsoft.Workshop.Net.OOPFundamentals.GoF___Structural;
 
 namespace Microsoft.CSharp.Basics.Patterns.FileTreeExtender
 {
@@ -6,7 +6,7 @@ namespace Microsoft.CSharp.Basics.Patterns.FileTreeExtender
     {
         static void Main(string[] args)
         {
-            ExecuteVisitorExample();
+            ExecuteGoFCompositeExample();
         }
         #region GoF - Composite
         public static void ExecuteGoFCompositeExample()
