@@ -35,19 +35,19 @@ namespace Microsoft.CSharp.Basics.Solid.UnitTests.Tests
 
         private static void AssertPoliciesEqual(Policy result, Policy policy)
         {
-            Assert.Equals(policy.Address, result.Address);
-            Assert.Equals(policy.Amount, result.Amount);
-            Assert.Equals(policy.BondAmount, result.BondAmount);
-            Assert.Equals(policy.DateOfBirth, result.DateOfBirth);
-            Assert.Equals(policy.Deductible, result.Deductible);
-            Assert.Equals(policy.FullName, result.FullName);
-            Assert.Equals(policy.IsSmoker, result.IsSmoker);
-            Assert.Equals(policy.Make, result.Make);
-            Assert.Equals(policy.Miles, result.Miles);
-            Assert.Equals(policy.Model, result.Model);
-            Assert.Equals(policy.Type, result.Type);
-            Assert.Equals(policy.Valuation, result.Valuation);
-            Assert.Equals(policy.Year, result.Year);
+            Assert.AreEqual(policy.Address, result.Address);
+            Assert.AreEqual(policy.Amount, result.Amount);
+            Assert.AreEqual(policy.BondAmount, result.BondAmount);
+            Assert.AreEqual(policy.DateOfBirth, result.DateOfBirth);
+            Assert.AreEqual(policy.Deductible, result.Deductible);
+            Assert.AreEqual(policy.FullName, result.FullName);
+            Assert.AreEqual(policy.IsSmoker, result.IsSmoker);
+            Assert.AreEqual(policy.Make, result.Make);
+            Assert.AreEqual(policy.Miles, result.Miles);
+            Assert.AreEqual(policy.Model, result.Model);
+            Assert.AreEqual(policy.Type, result.Type);
+            Assert.AreEqual(policy.Valuation, result.Valuation);
+            Assert.AreEqual(policy.Year, result.Year);
         }
     }
 }
