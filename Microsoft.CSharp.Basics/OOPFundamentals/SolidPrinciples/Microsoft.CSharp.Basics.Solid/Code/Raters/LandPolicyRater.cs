@@ -2,8 +2,8 @@ namespace Microsoft.CSharp.Basics.Solid.Code.Raters
 {
     public class LandPolicyRater : Rater
     {
-        public LandPolicyRater(RatingEngine engine, ConsoleLogger logger)
-            :base(engine,logger)
+        public LandPolicyRater(IRatingContext context)
+            : base(context)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Microsoft.CSharp.Basics.Solid.Code.Raters
                 _logger.Log("Insufficient bond amount.");
                 return;
             }
-            _engine.Rating = policy.BondAmount * 0.05m;
+            _context.UpdateRating(policy.BondAmount * 0.05m);
         }
     }
 }

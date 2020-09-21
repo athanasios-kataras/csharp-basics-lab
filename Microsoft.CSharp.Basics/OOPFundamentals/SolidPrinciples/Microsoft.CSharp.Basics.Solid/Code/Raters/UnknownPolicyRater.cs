@@ -2,8 +2,8 @@ namespace Microsoft.CSharp.Basics.Solid.Code.Raters
 {
     public class UnknownPolicyRater : Rater
     {
-        public UnknownPolicyRater(RatingEngine engine, ConsoleLogger logger)
-            : base(engine, logger)
+        public UnknownPolicyRater(IRatingContext context)
+            : base(context)
         {
         }
 

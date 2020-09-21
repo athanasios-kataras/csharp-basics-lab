@@ -2,8 +2,8 @@ namespace Microsoft.CSharp.Basics.Solid.Code.Raters
 {
     public class FloodPolicyRater : Rater
     {
-        public FloodPolicyRater(RatingEngine engine, ConsoleLogger logger)
-            : base(engine, logger)
+        public FloodPolicyRater(IRatingContext context)
+            : base(context)
         {
         }
 
@@ -37,7 +37,7 @@ namespace Microsoft.CSharp.Basics.Solid.Code.Raters
             {
                 multiple = 1.1m;
             }
-            _engine.Rating = policy.BondAmount * 0.05m * multiple;
+            _context.UpdateRating(policy.BondAmount * 0.05m * multiple);
         }
     }
 }
