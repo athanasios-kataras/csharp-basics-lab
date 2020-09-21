@@ -1,4 +1,4 @@
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.Solid
+namespace Microsoft.CSharp.Basics.Solid
 {
     public enum PolicyType
     {

@@ -1,5 +1,5 @@
 using System.IO;
-using Microsoft.Workshop.Net.OOPFundamentals.Lab.Solid;
+using Microsoft.CSharp.Basics.Solid;
 using Newtonsoft.Json;
 using NUnit.Framework;
 

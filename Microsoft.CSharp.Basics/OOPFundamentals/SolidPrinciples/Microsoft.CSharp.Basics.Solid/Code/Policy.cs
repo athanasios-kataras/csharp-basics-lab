@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.Solid
+namespace Microsoft.CSharp.Basics.Solid
 {
  public class Policy
     {

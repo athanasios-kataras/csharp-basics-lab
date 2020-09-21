@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.Solid
+namespace Microsoft.CSharp.Basics.Solid
 {
     /// <summary>
     /// The RatingEngine reads the policy application details from a file and produces a numeric 
