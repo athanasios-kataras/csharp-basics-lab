@@ -15,7 +15,7 @@ namespace Microsoft.CSharp.Basics.Solid.Code
             }
             catch
             {
-                return null;
+                return new UnknownPolicyRater(engine, engine.Logger);
             }
         }
     }
