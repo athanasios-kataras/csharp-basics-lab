@@ -1,3 +1,5 @@
+using System;
+
 namespace Microsoft.CSharp.Basics.Solid.Code
 {
     public class ConsoleLogger

@@ -12,7 +12,7 @@ namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.UnitTests.Solid
         {
             var policy = new Policy
             {
-                Type = PolicyType.Land,
+                Type = PolicyType.Land.ToString(),
                 BondAmount = 200000,
                 Valuation = 200000
             };
@@ -31,7 +31,7 @@ namespace Microsoft.Workshop.Net.OOPFundamentals.Lab.UnitTests.Solid
         {
             var policy = new Policy
             {
-                Type = PolicyType.Land,
+                Type = PolicyType.Land.ToString(),
                 BondAmount = 200000,
                 Valuation = 260000
             };
