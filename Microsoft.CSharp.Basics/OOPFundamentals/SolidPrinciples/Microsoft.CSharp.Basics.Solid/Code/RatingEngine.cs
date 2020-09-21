@@ -11,10 +11,12 @@ namespace Microsoft.CSharp.Basics.Solid
     {
         public IRatingContext Context { get; set; } = new DefaultRatingContext();
         public decimal Rating { get; set; }
+
         public RatingEngine()
         {
             Context.Engine = this;
         }
+
         public void Rate()
         {
             Context.Log("Starting rate.");
