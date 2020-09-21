@@ -1,15 +1,16 @@
+using Microsoft.CSharp.Basics.Solid.Code.Interfaces;
+
 namespace Microsoft.CSharp.Basics.Solid.Code.Raters
 {
     public abstract class Rater
     {
-        protected readonly IRatingUpdater _ratingUpdater;
-        public ILogger Logger { get; set; } = new ConsoleLogger();
-
-        public Rater(IRatingUpdater ratingUpdater)
+        public ILogger Logger { get; set; }
+        
+        protected Rater(ILogger logger)
         {
-            _ratingUpdater = ratingUpdater;
+            Logger = logger;
         }
 
-        public abstract void Rate(Policy policy);
+        public abstract decimal Rate(Policy policy);
     }
 }

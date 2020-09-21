@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Microsoft.CSharp.Basics.Solid.Code.Raters;
+using Microsoft.CSharp.Basics.Solid.Code.Interfaces;
 
 namespace Microsoft.CSharp.Basics.Solid.UnitTests.Tests
 {

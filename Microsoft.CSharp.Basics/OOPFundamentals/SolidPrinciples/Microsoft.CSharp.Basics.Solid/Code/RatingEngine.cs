@@ -1,4 +1,5 @@
 using Microsoft.CSharp.Basics.Solid.Code;
+using Microsoft.CSharp.Basics.Solid.Code.Interfaces;
 using Microsoft.CSharp.Basics.Solid.Code.Raters;
 
 namespace Microsoft.CSharp.Basics.Solid
@@ -9,29 +10,36 @@ namespace Microsoft.CSharp.Basics.Solid
     /// </summary>
     public class RatingEngine
     {
-        public IRatingContext Context { get; set; } = new DefaultRatingContext();
-        public decimal Rating { get; set; }
+        private readonly ILogger logger;
+        private readonly IPolicySource policySource;
+        private readonly IPolicySerializer policySerializer;
+        private readonly RaterFactory raterFactory;
 
-        public RatingEngine()
+        public RatingEngine(ILogger logger, IPolicySource policySource, IPolicySerializer policySerializer, RaterFactory raterFactory)
         {
-            Context.Engine = this;
+            this.logger = logger;
+            this.policySource = policySource;
+            this.policySerializer = policySerializer;
+            this.raterFactory = raterFactory;
         }
 
-        public void Rate()
+        public decimal Rate()
         {
-            Context.Log("Starting rate.");
+            logger.Log("Starting rate.");
 
-            Context.Log("Loading policy.");
+            logger.Log("Loading policy.");
 
-            string policyJson = Context.LoadPolicyFromFile();
+            string policyString = policySource.GetPolicyFromSource();
 
-            var policy = Context.GetPolicyFromJsonString(policyJson);
+            var policy =  policySerializer.GetPolicyFromString(policyString);
 
-            var rater = Context.CreateRaterForPolicy(policy, Context);
+            var rater = raterFactory.Create(policy);
 
-            rater.Rate(policy);
+            var rate = rater.Rate(policy);
 
-            Context.Log("Rating completed.");
+            logger.Log("Rating completed.");
+
+            return rate;
         }
     }
 }

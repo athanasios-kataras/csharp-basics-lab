@@ -1,4 +1,4 @@
-namespace Microsoft.CSharp.Basics.Solid.Code.Raters
+namespace Microsoft.CSharp.Basics.Solid.Code.Interfaces
 {
     public interface ILogger
     {

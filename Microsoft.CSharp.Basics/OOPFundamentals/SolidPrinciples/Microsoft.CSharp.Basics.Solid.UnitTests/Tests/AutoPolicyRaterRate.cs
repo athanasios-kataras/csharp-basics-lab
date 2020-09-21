@@ -22,35 +22,34 @@ namespace Microsoft.CSharp.Basics.Solid.UnitTests.Tests
         [Test]
         public void SetsRatingTo1000ForBMWWith250Deductible()
         {
+            var logger = new FakeLogger();
+
             var policy = new Policy()
             {
                 Type = "Auto",
                 Make = "BMW",
                 Deductible = 250m
             };
-            var ratingUpdater = new FakeRatingUpdater();
-            var rater = new AutoPolicyRater(ratingUpdater);
 
-            rater.Rate(policy);
+            var rater = new AutoPolicyRater(logger);
 
-            Assert.AreEqual(1000m, ratingUpdater.NewRating.Value);
+
+            Assert.AreEqual(1000m, rater.Rate(policy));
         }
 
         [Test]
         public void SetsRatingTo900ForBMWWith500Deductible()
         {
+            var logger = new FakeLogger();
             var policy = new Policy()
             {
                 Type = "Auto",
                 Make = "BMW",
                 Deductible = 500m
             };
-            var ratingUpdater = new FakeRatingUpdater();
-            var rater = new AutoPolicyRater(ratingUpdater);
+            var rater = new AutoPolicyRater(logger);
 
-            rater.Rate(policy);
-
-            Assert.AreEqual(900m, ratingUpdater.NewRating.Value);
+            Assert.AreEqual(900m, rater.Rate(policy));
         }
     }
 }
