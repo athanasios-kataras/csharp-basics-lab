@@ -168,7 +168,7 @@ namespace Microsoft.CSharp.Basics.CleanCode.UnitTests
 				Employer = "Example Employer",
 				HasBlog = true,
 				Browser = new WebBrowser("test", 1),
-				Exp = 1,
+				Experiense = 1,
 				Certifications = new System.Collections.Generic.List<string>(),
 				BlogURL = "",
 				Sessions = new System.Collections.Generic.List<Session>() {

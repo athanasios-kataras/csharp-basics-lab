@@ -11,7 +11,7 @@ namespace Microsoft.CSharp.Basics.CleanCode
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Email { get; set; }
-		public int? Exp { get; set; }
+		public int? Experiense { get; set; }
 		public bool HasBlog { get; set; }
 		public string BlogURL { get; set; }
 		public WebBrowser Browser { get; set; }
@@ -26,14 +26,11 @@ namespace Microsoft.CSharp.Basics.CleanCode
 		/// <returns>speakerID</returns>
 		public RegisterResponse Register(IRepository repository)
 		{
-			int? speakerId = null;
-			bool good = false;
-			bool appr = false;
-
-			var ot = new List<string>() { "Cobol", "Punch Cards", "Commodore", "VBScript" };
-
 			//We weren't filtering out the prodigy domain so I added it.
 			var domains = new List<string>() { "aol.com", "prodigy.com", "compuserve.com" };
+
+			int? speakerId = null;
+			bool isAdvancedUser = false;
 
 			if (!string.IsNullOrWhiteSpace(FirstName))
 			{
@@ -41,30 +38,32 @@ namespace Microsoft.CSharp.Basics.CleanCode
 				{
 					if (!string.IsNullOrWhiteSpace(Email))
 					{
-						var emps = new List<string>() { "Pluralsight", "Microsoft", "Google" };
+						var employers = new List<string>() { "Pluralsight", "Microsoft", "Google" };
 
-						good = Exp > 10 || HasBlog || Certifications.Count() > 3 || emps.Contains(Employer);
+						isAdvancedUser = Experiense > 10 || HasBlog || Certifications.Count() > 3 || employers.Contains(Employer);
 
-						if (!good)
+						if (!isAdvancedUser)
 						{
 							//need to get just the domain from the email
 							string emailDomain = Email.Split('@').Last();
 
 							if (!domains.Contains(emailDomain) && (!(Browser.Name == WebBrowser.BrowserName.InternetExplorer && Browser.MajorVersion < 9)))
 							{
-								good = true;
+								isAdvancedUser = true;
 							}
 						}
 
-						if (good)
+						var oldTechnologies = new List<string>() { "Cobol", "Punch Cards", "Commodore", "VBScript" };
+						bool isApproved = false;
+						if (isAdvancedUser)
 						{
 							if (Sessions.Count() != 0)
 							{
 								foreach (var session in Sessions)
 								{
-									foreach (var tech in ot)
+									foreach (var technology in oldTechnologies)
 									{
-										if (session.Title.Contains(tech) || session.Description.Contains(tech))
+										if (session.Title.Contains(technology) || session.Description.Contains(technology))
 										{
 											session.Approved = false;
 											break;
@@ -72,7 +71,7 @@ namespace Microsoft.CSharp.Basics.CleanCode
 										else
 										{
 											session.Approved = true;
-											appr = true;
+											isApproved = true;
 										}
 									}
 								}
@@ -82,25 +81,25 @@ namespace Microsoft.CSharp.Basics.CleanCode
 								return new RegisterResponse(RegisterError.NoSessionsProvided);
 							}
 
-							if (appr)
+							if (isApproved)
 							{
 								//if we got this far, the speaker is approved
 								//let's go ahead and register him/her now.
 								//First, let's calculate the registration fee. 
 								//More experienced speakers pay a lower fee.
-								if (Exp <= 1)
+								if (Experiense <= 1)
 								{
 									RegistrationFee = 500;
 								}
-								else if (Exp >= 2 && Exp <= 3)
+								else if (Experiense >= 2 && Experiense <= 3)
 								{
 									RegistrationFee = 250;
 								}
-								else if (Exp >= 4 && Exp <= 5)
+								else if (Experiense >= 4 && Experiense <= 5)
 								{
 									RegistrationFee = 100;
 								}
-								else if (Exp >= 6 && Exp <= 9)
+								else if (Experiense >= 6 && Experiense <= 9)
 								{
 									RegistrationFee = 50;
 								}
