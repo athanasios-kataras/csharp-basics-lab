@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System;
 
 namespace Microsoft.CSharp.Basics.CleanCode
 {
@@ -27,14 +26,12 @@ namespace Microsoft.CSharp.Basics.CleanCode
 		/// <returns>speakerID</returns>
 		public RegisterResponse Register(IRepository repository)
 		{
-			// lets init some vars
 			int? speakerId = null;
 			bool good = false;
 			bool appr = false;
-			//var nt = new List<string> {"Node.js", "Docker"};
+
 			var ot = new List<string>() { "Cobol", "Punch Cards", "Commodore", "VBScript" };
 
-			//DEFECT #5274 DA 12/10/2012
 			//We weren't filtering out the prodigy domain so I added it.
 			var domains = new List<string>() { "aol.com", "prodigy.com", "compuserve.com" };
 
@@ -44,7 +41,6 @@ namespace Microsoft.CSharp.Basics.CleanCode
 				{
 					if (!string.IsNullOrWhiteSpace(Email))
 					{
-						//put list of employers in array
 						var emps = new List<string>() { "Pluralsight", "Microsoft", "Google" };
 
 						good = Exp > 10 || HasBlog || Certifications.Count() > 3 || emps.Contains(Employer);
@@ -66,15 +62,6 @@ namespace Microsoft.CSharp.Basics.CleanCode
 							{
 								foreach (var session in Sessions)
 								{
-									//foreach (var tech in nt)
-									//{
-									//    if (session.Title.Contains(tech))
-									//    {
-									//        session.Approved = true;
-									//        break;
-									//    }
-									//}
-
 									foreach (var tech in ot)
 									{
 										if (session.Title.Contains(tech) || session.Description.Contains(tech))
@@ -122,7 +109,6 @@ namespace Microsoft.CSharp.Basics.CleanCode
 									RegistrationFee = 0;
 								}
 
-
 								//Now, save the speaker and sessions to the db.
 								try
 								{
@@ -158,7 +144,6 @@ namespace Microsoft.CSharp.Basics.CleanCode
 				return new RegisterResponse(RegisterError.FirstNameRequired);
 			}
 
-			//if we got this far, the speaker is registered.
 			return new RegisterResponse((int)speakerId);
 		}
 	}
